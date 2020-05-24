@@ -18,6 +18,8 @@ public class LoginTestNotPaged {
     public void openLoginPage() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
+        final String[] args = { "--remote-debugging-port=9222" };
+        options.addArguments(args);
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
