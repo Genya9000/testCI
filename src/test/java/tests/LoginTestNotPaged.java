@@ -20,6 +20,7 @@ public class LoginTestNotPaged {
         FirefoxOptions options = new FirefoxOptions();
         /*final String[] args = { "--remote-debugging-port=9222" };
         options.addArguments(args);*/
+        options.addArguments("--headless");
         driver = new FirefoxDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
