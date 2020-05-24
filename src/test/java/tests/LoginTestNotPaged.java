@@ -16,11 +16,11 @@ public class LoginTestNotPaged {
 
     @BeforeTest
     public void openLoginPage() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        final String[] args = { "--remote-debugging-port=9222" };
-        options.addArguments(args);
-        driver = new ChromeDriver(options);
+        WebDriverManager.firefoxdriver().setup();
+        FirefoxOptions options = new FirefoxOptions();
+        /*final String[] args = { "--remote-debugging-port=9222" };
+        options.addArguments(args);*/
+        driver = new FirefoxDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://github.com/");
