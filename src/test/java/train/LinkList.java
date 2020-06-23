@@ -1,9 +1,12 @@
 package train;
 
+import org.testng.annotations.Ignore;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.*;
 
+@Ignore
 public class LinkList {
 
 
@@ -28,7 +31,7 @@ public class LinkList {
     }
 
     public static void main(String[] args) {
-        var list = new LinkList();
+        LinkList list = new LinkList();
         System.out.println(Arrays.toString(list.fibo(4)));
         System.out.println(list.find(-4));
         System.out.println(list.find(22));
