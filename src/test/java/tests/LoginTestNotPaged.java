@@ -7,23 +7,45 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
 
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.util.concurrent.TimeUnit;
 
 public class LoginTestNotPaged {
-    private WebDriver driver;
+    private RemoteWebDriver driver;
 
     @BeforeTest
     public void openLoginPage() {
-        WebDriverManager.firefoxdriver().setup();
+       /* WebDriverManager.firefoxdriver().setup();
         FirefoxOptions options = new FirefoxOptions();
-        /*final String[] args = { "--remote-debugging-port=9222" };
-        options.addArguments(args);*/
+        *//*final String[] args = { "--remote-debugging-port=9222" };
+        options.addArguments(args);*//*
         //options.addArguments("--headless");
         driver = new FirefoxDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();*/
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("chrome");
+        capabilities.setVersion("83.0");
+        capabilities.setCapability("enableVNC", false);
+        capabilities.setCapability("enableVideo", false);
+
+         driver = null;
+        try {
+            driver = new RemoteWebDriver(
+                    URI.create("http://localhost:4444/wd/hub").toURL(),
+                    capabilities
+            );
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        driver.manage().timeouts().implicitlyWait(40000, TimeUnit.MILLISECONDS);
         driver.manage().window().maximize();
+        
         driver.get("https://github.com/");
         driver.findElement(By.xpath("//a[(contains(@class, 'HeaderMenu-link')) and (@href='/login')]")).click();
     }
