@@ -29,11 +29,19 @@ public class LinkList {
         }
         return let>0? result : BigInteger.valueOf(0);
     }
+    public int sumOfDigits(int digit){
+        int result = 0;
+        String digits = String.valueOf(digit);
+        char[] digs = digits.toCharArray();
+        for (char vel:digs){
+            result+=Integer.parseInt(String.valueOf(vel));
+        }
+        return result;
+    }
 
     public static void main(String[] args) {
         LinkList list = new LinkList();
         System.out.println(Arrays.toString(list.fibo(4)));
-        System.out.println(list.find(-4));
-        System.out.println(list.find(22));
+        System.out.println("sum = ".concat(String.valueOf(list.sumOfDigits(3457))));
     }
 }
