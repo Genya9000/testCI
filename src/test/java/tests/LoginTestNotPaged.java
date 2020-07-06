@@ -22,15 +22,15 @@ public class LoginTestNotPaged {
 
     @BeforeTest
     public void openLoginPage() {
-       /* WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.firefoxdriver().setup();
         FirefoxOptions options = new FirefoxOptions();
         //final String[] args = { "--remote-debugging-port=9222" };
         //options.addArguments(args);
         options.addArguments("--headless");
         driver = new FirefoxDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();*/
-        DesiredCapabilities capabilities = new DesiredCapabilities();
+        driver.manage().window().maximize();
+       /* DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
         capabilities.setVersion("83.0");
         capabilities.setCapability("enableVNC", true);
@@ -46,7 +46,7 @@ public class LoginTestNotPaged {
             e.printStackTrace();
         }
         driver.manage().timeouts().implicitlyWait(40000, TimeUnit.MILLISECONDS);
-        driver.manage().window().maximize();
+        driver.manage().window().maximize();*/
         driver.get("https://github.com/");
         driver.findElement(By.xpath("//a[(contains(@class, 'HeaderMenu-link')) and (@href='/login')]")).click();
     }
