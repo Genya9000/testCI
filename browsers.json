@@ -1,6 +1,6 @@
 {
     "chrome": {
-        "default": "83.0",
+        "default": "81.0",
         "versions": {
             "81.0": {
                 "image": "selenoid/vnc_chrome:81.0",
